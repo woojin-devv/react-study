@@ -1,4 +1,4 @@
-export default function TapButton({ children, onSelect }) {
+export default function TapButton({ children, onSelect, isSelected }) {
     // // 컴포넌트 함수 내부에 onClick 핸들러 함수 정의
     // function handleClick() {
     //     console.log('Hello World!');
@@ -8,6 +8,6 @@ export default function TapButton({ children, onSelect }) {
     //     console.log(`Button clicked: ${children}`);
     // });
     return (
-        <li><button onClick={onSelect}>{children}</button></li>
+        <li><button onClick={onSelect} className={isSelected ? 'active' : undefined} >{children}</button></li>
     );
 }
