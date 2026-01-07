@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { EXAMPLES } from '../data.js';
 import TapButton from "./CoreConcept/TapButton.jsx";
+import Section from "./Section.jsx";
+import Tabs from "./Tabs.jsx"
 
 export default function Examples() {
     const [selectedTopic, setSelectedTopic] = useState(null);
@@ -10,13 +12,15 @@ export default function Examples() {
         setSelectedTopic(selectedButton);
     }
     return (
-        <section id="examples">
+        <Section title="Examples" id="examples">
             <h2>Examples</h2>
+            <Tabs>
+            </Tabs>
             <menu>
-                <TapButton isSelected={selectedTopic === 'components'} onSelect={() => handleSelect('components')}>Components</TapButton>
-                <TapButton isSelected={selectedTopic === 'jsx'} onSelect={() => handleSelect('jsx')}>JSX</TapButton>
-                <TapButton isSelected={selectedTopic === 'props'} onSelect={() => handleSelect('props')}>Props</TapButton>
-                <TapButton isSelected={selectedTopic === 'state'} onSelect={() => handleSelect('state')}>State</TapButton>
+                <TapButton isSelected={selectedTopic === 'components'} onClick={() => handleSelect('components')}>Components</TapButton>
+                <TapButton isSelected={selectedTopic === 'jsx'} onClick={() => handleSelect('jsx')}>JSX</TapButton>
+                <TapButton isSelected={selectedTopic === 'props'} onClick={() => handleSelect('props')}>Props</TapButton>
+                <TapButton isSelected={selectedTopic === 'state'} onClick={() => handleSelect('state')}>State</TapButton>
             </menu>
             <div id="tab-content">
                 {!selectedTopic && null}
@@ -30,6 +34,6 @@ export default function Examples() {
                     </>
                 )}
             </div>
-        </section>
+        </Section>
     );
 }
